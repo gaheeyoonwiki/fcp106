@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>시작하세요! 파이널 컷 프로 10.6</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="chapter"><span class="num">01.</span> 시작하세요! 파이널 컷 프로 10.6</div>
+        <ul id="contents">
+            <li>
+                <span class="title"><span class="num">1일차.</span>파이널 컷 프로를 소개합니다</span>
+                <span class="page">4</span>
+                <ul id="detail">
+                    <li><span>동영상 강좌</span><a href="https://youtu.be/wh7N7p-hajA" target="_blank">https://youtu.be/wh7N7p-hajA</a> (11분 4초) <span class="studyLabel" id="day1" data-day="1">학습 중</span></li>
+                </ul>
+            </li>
+            <li>
+                <span class="title"><span class="num">2일차.</span>파이널 컷 프로 무료 체험판 설치</span>
+                <span class="page">10</span>
+                <ul id="detail">
+                    <li><span>동영상 강좌</span><a href="https://youtu.be/U-bV0QTx0bI" target="_blank">https://youtu.be/U-bV0QTx0bI</a> (8분 57초) <span class="studyLabel" id="day2" data-day="2">학습 중</span></li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+    <script>
+        $('.studyLabel').click(function() {
+            var day = $(this).attr('data-day');
+
+            if(localStorage.getItem("study" + day) == null) {
+                // 학습 완료로 변경
+                localStorage.setItem("study" + day, "finish");
+                $(this).addClass("fin");
+                $(this).text('학습 완료');
+            } else {
+                // 학습 중으로 변경
+                localStorage.removeItem("study" + day);
+                $(this).removeClass("fin");
+                $(this).text('학습 중');
+            }
+        });
+
+        $(document).ready(function(){
+            for(var i=1; i<=30; i++) {
+                if(localStorage.getItem("study" + i) == "finish") {
+                    $('#day' + i).addClass("fin");
+                    $('#day' + i).text('학습 완료');
+                }
+            }
+        });
+    </script>
+</html>
