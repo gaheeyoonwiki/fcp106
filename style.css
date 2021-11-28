@@ -111,7 +111,7 @@ ul#contents .title .num {
     padding-right: 3px;
     background: white;
     color: #474545;
-    width: 44px;
+    width: 55px;
     display: inline-block;
     font-weight: bold;
 }
@@ -179,4 +179,17 @@ span.studyLabel {
 }
 span.studyLabel.fin {
 		background: #64afc8;
+}
+div.imageArea {
+	padding-bottom: 10px;
+}
+div.imageArea img {
+		width: 15%;
+}
+div#exampleArea {
+    padding: 20px;
+    background: #64AFC8;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 30px;
 }
